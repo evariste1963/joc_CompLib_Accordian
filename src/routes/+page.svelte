@@ -2,8 +2,7 @@
 	import { Accordion, AccordionItem } from '../lib/components/accordion/accordion';
 
 	export let data;
-	console.log(data);
-	
+		
 </script>
 
 <h1>It all starts here!</h1>
