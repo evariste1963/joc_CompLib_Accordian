@@ -1,5 +1,5 @@
 <script>
-	import { Accordian, AccordianItem } from '../lib/components/accordian';
+	import { Accordion, AccordionItem } from '../lib/components/accordion/accordion';
 
 	const items = [
 		{ title: 'item 1', content: 'content 1' },
@@ -11,5 +11,5 @@
 
 <h1>It all starts here!</h1>
 
-<Accordian prop="acc1_prop" />
-<AccordianItem />
+<Accordion prop="acc1_prop" />
+<AccordionItem />
