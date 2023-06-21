@@ -1,5 +1,5 @@
 <script>
-	import { Accordion, AccordionItem } from '../lib/components/accordion/accordion';
+	import { Accordion, AccordionItem } from '$lib/components/accordion/accordion';
 
 	export let data;
 	let { items } = data;
