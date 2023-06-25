@@ -1,4 +1,6 @@
 <script>
+// from: https://joyofcode.xyz/make-a-svelte-component-library \\
+
 	import { Accordion, AccordionItem } from '$lib/components/accordion/accordion';
 
 	export let data;
