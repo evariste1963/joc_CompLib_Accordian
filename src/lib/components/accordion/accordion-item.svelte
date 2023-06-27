@@ -1,16 +1,45 @@
 <script>
-	export let prop = 'default-prop';
+	export let open;
 
-	export let items;
+	function toggleOpen() {
+		open = !open;
+	}
 </script>
 
-<h2>accordion item</h2>
-<h4>{prop}</h4>
-<br />
-{#each items as item}
-	<h3>{item.title}</h3>
-	<p>{item.content}</p>
-{/each}
+<div class="accordion-item">
+	<button on:click={toggleOpen} class="accordion-toggle">
+		<div class="accordion-title">
+			<slot name="title" />
+		</div>
+		<div class="accordion-caret">X</div>
+	</button>
+	{#if open}
+		<div class="accordion-content">
+			<slot name="content" />
+		</div>
+	{/if}
+</div>
 
 <style>
+	.accordion-toggle {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		padding: var(--accordion-padding, 1rem);
+		color: var(--accordion-color, inherit);
+		font: inherit;
+		font-weight: 600;
+		border: none;
+		background: none;
+		cursor: pointer;
+		border-radius: var(--accordion-radius, 4px);
+		transition: background-color 0.1s ease;
+	}
+	.accordion-toggle:hover {
+		background-color: var(--accordion-hover, hsl(220 20% 20%));
+	}
+
+	.accordion-content {
+		padding: var(--accordion-content-padding, 1rem);
+	}
 </style>
