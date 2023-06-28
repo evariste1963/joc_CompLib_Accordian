@@ -13,16 +13,22 @@
 
 	function toggleOpen() {
 		open = !open;
+		//part of my preferred functionality from handleClick
+		$activeComponentId = null;
 	}
 
 	function handleClick() {
-		colapse ? setActive() : toggleOpen();
+		// colapse ? setActive : toggleOpen;
+		// I prefer the functionality below
+		if (colapse) {
+			setActive();
+			toggleOpen();
+		} else toggleOpen();
 	}
 
 	$: open && colapse && setActive();
 	$: isActive = $activeComponentId === componentId;
 	$: isOpen = colapse ? isActive : open;
-
 </script>
 
 <div class="accordion-item">
