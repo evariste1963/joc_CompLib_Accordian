@@ -1,5 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
+	import { slide } from 'svelte/transition';
 
 	export let open;
 
@@ -12,18 +13,15 @@
 	}
 
 	function toggleOpen() {
+		setActive();
 		open = !open;
-		//part of my preferred functionality from handleClick
 		$activeComponentId = null;
 	}
 
 	function handleClick() {
-		// colapse ? setActive : toggleOpen;
+		//colapse ? setActive : toggleOpen;
 		// I prefer the functionality below
-		if (colapse) {
-			setActive();
-			toggleOpen();
-		} else toggleOpen();
+		colapse ? (isOpen ? (isOpen = false) : setActive()) : toggleOpen();
 	}
 
 	$: open && colapse && setActive();
@@ -36,16 +34,23 @@
 		<div class="accordion-title">
 			<slot name="title" />
 		</div>
-		<div class="accordion-caret">X</div>
+		<div class="accordion-caret" class:open={isOpen}>🔺</div>
 	</button>
 	{#if isOpen}
-		<div class="accordion-content">
+		<div transition:slide|local class="accordion-content">
 			<slot name="content" />
 		</div>
 	{/if}
 </div>
 
 <style>
+	.accordion-caret {
+		transition: rotate 0.3s ease;
+	}
+
+	.open {
+		rotate: 180deg;
+	}
 	.accordion-toggle {
 		width: 100%;
 		display: flex;
