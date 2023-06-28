@@ -1,19 +1,38 @@
 <script>
+	import { getContext } from 'svelte';
+
 	export let open;
+
+	const componentId = crypto.randomUUID();
+	const colapse = getContext('colapse');
+	const activeComponentId = getContext('active');
+
+	function setActive() {
+		$activeComponentId = componentId;
+	}
 
 	function toggleOpen() {
 		open = !open;
 	}
+
+	function handleClick() {
+		colapse ? setActive() : toggleOpen();
+	}
+
+	$: open && colapse && setActive();
+	$: isActive = $activeComponentId === componentId;
+	$: isOpen = colapse ? isActive : open;
+
 </script>
 
 <div class="accordion-item">
-	<button on:click={toggleOpen} class="accordion-toggle">
+	<button on:click={handleClick} class="accordion-toggle">
 		<div class="accordion-title">
 			<slot name="title" />
 		</div>
 		<div class="accordion-caret">X</div>
 	</button>
-	{#if open}
+	{#if isOpen}
 		<div class="accordion-content">
 			<slot name="content" />
 		</div>
