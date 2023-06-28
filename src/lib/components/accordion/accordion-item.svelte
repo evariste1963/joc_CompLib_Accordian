@@ -10,6 +10,7 @@
 
 	function setActive() {
 		$activeComponentId = componentId;
+		open = !open;
 	}
 
 	function toggleOpen() {
