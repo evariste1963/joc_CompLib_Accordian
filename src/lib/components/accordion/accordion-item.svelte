@@ -19,7 +19,7 @@
 	}
 
 	function handleClick() {
-		// I prefer the functionality below
+		// I prefer my own functionality here --> toggle open/close whether colapse or not
 		colapse ? (isOpen ? (isOpen = false) : setActive()) : toggleOpen();
 	}
 
@@ -46,7 +46,7 @@
 	.accordion-caret {
 		rotate: -180deg;
 		font-size: 1.5rem;
-		transition: all 0.5s ease;
+		transition: all 0.6s ease;
 	}
 
 	.open {
@@ -55,11 +55,13 @@
 
 	:where(.accordion-caret, .accordion-title).open
 	 {
-		font-size:larger;
+		font-size: 102%;
+		font-weight: 600;
 		background: linear-gradient( rgb(246, 247, 248) 40%, rgb(20, 25, 182) 100%);
 		background-clip: text;
    		-webkit-background-clip: text;
   		-webkit-text-fill-color: transparent;
+		
 	}
 
 	.accordion-toggle {
@@ -69,12 +71,12 @@
 		padding: var(--accordion-padding, 1rem);
 		color: var(--accordion-color, inherit);
 		font: inherit;
-		font-weight: 600;
+		font-weight: 200;
 		border: none;
 		background: none;
 		cursor: pointer;
 		border-radius: var(--accordion-radius, 4px);
-		transition: background-color 0.1s ease;
+		transition: background-color 0.3s ease;
 	}
 	.accordion-toggle:hover {
 		background-color: var(--accordion-hover, hsl(220 20% 20%));
