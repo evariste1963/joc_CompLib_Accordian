@@ -33,7 +33,7 @@
 		<div class="accordion-title">
 			<slot name="title" />
 		</div>
-		<div class="accordion-caret" class:open={isOpen}>🔺</div>
+		<div class="accordion-caret" class:open={isOpen}>ʌ</div>
 	</button>
 	{#if isOpen}
 		<div transition:slide|local class="accordion-content">
@@ -44,12 +44,18 @@
 
 <style>
 	.accordion-caret {
-		transition: rotate 0.3s ease;
+		font-size: 1.5rem;
+		transition: all 0.5s ease;
 	}
 
 	.open {
-		rotate: 180deg;
+		rotate: -180deg;
 	}
+
+	.accordion-caret.open {
+		color: rgb(52, 224, 14);
+	}
+
 	.accordion-toggle {
 		width: 100%;
 		display: flex;
