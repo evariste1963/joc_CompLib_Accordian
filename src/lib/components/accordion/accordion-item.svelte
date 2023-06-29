@@ -9,18 +9,16 @@
 	const activeComponentId = getContext('active');
 
 	function setActive() {
+		toggleOpen();
 		$activeComponentId = componentId;
-		open = !open;
 	}
 
 	function toggleOpen() {
-		setActive();
 		open = !open;
-		$activeComponentId = null;
+		//$activeComponentId = null;
 	}
 
 	function handleClick() {
-		//colapse ? setActive : toggleOpen;
 		// I prefer the functionality below
 		colapse ? (isOpen ? (isOpen = false) : setActive()) : toggleOpen();
 	}
