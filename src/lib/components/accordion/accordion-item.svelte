@@ -28,9 +28,9 @@
 	$: isOpen = colapse ? isActive : open;
 </script>
 
-<div class="accordion-item">
+<div class="accordion-item" >
 	<button on:click={handleClick} class="accordion-toggle">
-		<div class="accordion-title">
+		<div class="accordion-title" class:open={isOpen}>
 			<slot name="title" />
 		</div>
 		<div class="accordion-caret" class:open={isOpen}>ʌ</div>
@@ -44,16 +44,22 @@
 
 <style>
 	.accordion-caret {
+		rotate: -180deg;
 		font-size: 1.5rem;
 		transition: all 0.5s ease;
 	}
 
 	.open {
-		rotate: -180deg;
+		rotate: 0deg;
 	}
 
-	.accordion-caret.open {
-		color: rgb(52, 224, 14);
+	:where(.accordion-caret, .accordion-title).open
+	 {
+		font-size:larger;
+		background: linear-gradient( rgb(246, 247, 248) 40%, rgb(20, 25, 182) 100%);
+		background-clip: text;
+   		-webkit-background-clip: text;
+  		-webkit-text-fill-color: transparent;
 	}
 
 	.accordion-toggle {
@@ -76,5 +82,6 @@
 
 	.accordion-content {
 		padding: var(--accordion-content-padding, 1rem);
+		color:var(--accordion-content-color, rgb(240, 225, 212))
 	}
 </style>
