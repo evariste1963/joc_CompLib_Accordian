@@ -3,7 +3,7 @@
 	import { setContext } from 'svelte';
 
 	export let colapse = false;
-
+	
 	const activeComponentId = writable(null);
 
 	setContext('colapse', colapse);

@@ -10,7 +10,7 @@
 <Accordion colapse --accordion-width="60ch">
 	{#each items as item, i}
 		<!-- <AccordionItem open={i === 0}> -->
-			<AccordionItem >
+			<AccordionItem open={false}>
 			<svelte:fragment slot="title">{item.title}</svelte:fragment>
 			<svelte:fragment slot="content">{@html item.details}</svelte:fragment>
 		</AccordionItem>

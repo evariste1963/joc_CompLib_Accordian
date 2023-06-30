@@ -2,8 +2,8 @@
 	import { getContext } from 'svelte';
 	import { slide } from 'svelte/transition';
 
-	export let open;
-
+	export let open; 
+	
 	const componentId = crypto.randomUUID();
 	const colapse = getContext('colapse');
 	const activeComponentId = getContext('active');
