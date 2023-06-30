@@ -79,10 +79,12 @@
 		transition: background-color 0.3s ease;
 	}
 	.accordion-toggle:hover {
-		background-color: var(--accordion-hover, hsl(220 20% 20%));
+		/*background-color: var(--accordion-hover, hsl(220 20% 20%));*/
+		background: var( --accordion-hover-linear-gradient, linear-gradient(rgba(246, 247, 248, 0.3) 5%, rgba(50, 20, 182, 0.3) 100%))
 	}
 
 	.accordion-content {
+		font-size: 1.25rem;
 		padding: var(--accordion-content-padding, 1rem);
 		color:var(--accordion-content-color, rgb(240, 225, 212))
 	}
