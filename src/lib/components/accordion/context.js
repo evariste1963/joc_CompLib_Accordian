@@ -1,14 +1,14 @@
 import { writable } from 'svelte/store'
 import { setContext, getContext } from 'svelte'
 
-export function setAccordionOptions({ collapse }) {
+export function setAccordionOptions({ colapse }) {
 	const activeComponentId = writable(null)
-	setContext('collapse', collapse)
+	setContext('collapse', colapse)
 	setContext('active', activeComponentId)
 }
 
 export function getAccordionOptions() {
-	const collapse = getContext('collapse')
+	const colapse = getContext('collapse')
 	const activeComponentId = getContext('active')
-	return { collapse, activeComponentId }
+	return { colapse, activeComponentId }
 }

@@ -3,8 +3,8 @@
 
 	export let colapse = false;
 	
-	
 	setAccordionOptions( { colapse })
+	
 </script>
 
 <div class="accordion">
