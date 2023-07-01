@@ -1,13 +1,10 @@
 <script>
-	import { writable } from 'svelte/store';
-	import { setContext } from 'svelte';
+	import { setAccordionOptions} from './context'
 
 	export let colapse = false;
 	
-	const activeComponentId = writable(null);
-
-	setContext('colapse', colapse);
-	setContext('active', activeComponentId);
+	
+	setAccordionOptions( { colapse })
 </script>
 
 <div class="accordion">

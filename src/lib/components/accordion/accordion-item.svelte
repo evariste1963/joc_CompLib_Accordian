@@ -1,12 +1,15 @@
 <script>
-	import { getContext } from 'svelte';
+	
 	import { slide } from 'svelte/transition';
+	import { getAccordionOptions } from './context'
 
-	export let open; 
+	export let open = false; 
 	
 	const componentId = crypto.randomUUID();
-	const colapse = getContext('colapse');
-	const activeComponentId = getContext('active');
+	// const colapse = getContext('colapse');
+	// const activeComponentId = getContext('active');
+
+	const {colapse, activeComponentId} = getAccordionOptions()
 
 	function setActive() {
 		toggleOpen();
